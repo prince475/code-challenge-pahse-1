@@ -1,0 +1,23 @@
+{
+  "name": "code-challenge-pahse-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prince475/code-challenge-pahse-1.git"
+  },
+  "author": "prince",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prince475/code-challenge-pahse-1/issues"
+  },
+  "homepage": "https://github.com/prince475/code-challenge-pahse-1#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
