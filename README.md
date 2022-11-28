@@ -23,19 +23,22 @@ This is a program that takes as input the speed of a car e.g 80 Km/hr. If the sp
 ***
 ## Challenge 3: netSalary calculator
 
-This a program whose major task is to calculate an individual’s Net Salary by getting the inputs of basic salary and benefits. Calculates the payee (i.e. Tax), NHIFDeductions, NSSFDeductions, gross salary, and net salary. 
+This a program whose major task is to calculate an individual’s Net Salary by getting the inputs of basic salary and benefits. Calculates the payee (i.e. Tax), NHIFDeductions, NSSFDeductions, gross salary, and net salary.
+
 
 ## Imported Files
 
 <code>const prompt = require("prompt-sync")();</code>
+const prompt is used to allow the user to input their values and check how well the code is running.
 ***
 ## Project set up
 
-Clone repository to your local machine 
+run <code>npm initialise</code> and follow the prompts to initialise your package.json file.
+optional: adding npm testing using npm start. 
 run <code>npm install</code>
 run <code>npm insall propmt-sync</code> in the terminal once you have finished writing the code.
 ***
-## Author
+## Author 
 The author of this project is; 
 [Prince Daniel](https://github.com/prince475/code-challenge-pahse-1)
 ***
