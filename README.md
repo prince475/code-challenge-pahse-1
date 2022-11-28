@@ -6,7 +6,7 @@
 ***
    1. [Description](#description)
    2. [Imported Files](#imported-files)
-   3. [Installation](#installation)
+   3. [Project Set Up](#project-set-up)
    4. [Author and License](#author-and-license)
   ***
 ## Description
@@ -29,9 +29,9 @@ This a program whose major task is to calculate an individual’s Net Salary by 
 
 <code>const prompt = require("prompt-sync")();</code>
 ***
-## Installation
+## Project set up
 
-Clone repository to your local machine
+Clone repository to your local machine 
 run <code>npm install</code>
 run <code>npm insall propmt-sync</code> in the terminal once you have finished writing the code.
 ***

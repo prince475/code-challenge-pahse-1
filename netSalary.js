@@ -5,22 +5,7 @@ const prompt = require('prompt-sync')();
 
 const monthlyGrossPay = prompt("What is your monthly gross salary: ")
 
-const tierNSSF = prompt("Do you have alternative pension scheme in place other than NHIF (answer: yes or no): ")
-
-//function that calulates PAYE (Pay As You Earn) Tax
-function monthlyPAYE(PAYEDeduction) {
-    if (monthlyGrossPay > 0 && monthlyGrossPay <= 24000) {
-        PAYEDeduction = monthlyGrossPay * 0.1
-        return PAYEDeduction
-    } else if (monthlyGrossPay >= 24001 && monthlyGrossPay <= 32333) {
-        PAYEDeduction = monthlyGrossPay * 0.25
-        return PAYEDeduction
-    } else {
-        PAYEDeduction = monthlyGrossPay * 0.3
-        return PAYEDeduction
-    }
-}
-monthlyPAYE()
+const tierNSSF = prompt("Do you have alternative pension scheme in place other than NSSF (answer: yes or no): ")
 
 //function that calculates NHIF (National Hospital Insurance Fund)
 function NHIFDeductions (NHIFRate) {
@@ -89,6 +74,7 @@ function NSSFDeductions () {
     const rate = 0.06
 
     //TierI has a maximum lower pensionable income limit of Ksh 6,000
+    //As long as you earn gross monthly salary above 6000, it will be a standard pensionable pay of 6,000 
     if (tierNSSF === 'yes' || tierNSSF === 'Yes') {
         function tierI () {
             if (monthlyGrossPay <= lowerEarningsLimit) {
@@ -97,8 +83,12 @@ function NSSFDeductions () {
                 return lowerEarningsLimit * rate
             }
         }
-        return tierI()
+        return tierI()    
+    //Any gross monthly income below 6000 is not charged tier II
     //TierII has a maximum upper pensionable income limit of Ksh 18,000
+    //Income between 6000 and 18000, it is calculated as gross income - lower limit(6000)
+    //the difference is what is considered pensionable
+    //e.g gross of 16,000 - 6000 = 10,000 * 6%
     } else if (tierNSSF === 'no' || tierNSSF === 'No') {
         function tierII () {
             let pensionableEarnings
@@ -120,9 +110,41 @@ function NSSFDeductions () {
 }
 NSSFDeductions()
 
-//Function that calculates net salary by deducting PAYE, NHIF and NSSF from Gross Salary
-function netSalary(gross, paye, nhif, nssf) {
-    const total = gross - paye - nhif - nssf
-    return `PAYE tax = ${paye}\nNHIF deductions = ${nhif}\nNSSF deduction = ${nssf}\nNet Salary = ${total}`
+//Function that calulates taxable income. This is what PAYE calculates
+function taxablePay() {
+    return monthlyGrossPay - NHIFDeductions() - NSSFDeductions()
 }
-console.log(netSalary(monthlyGrossPay, monthlyPAYE(), NHIFDeductions(), NSSFDeductions()))
+taxablePay()
+
+//function that calulates PAYE (Pay As You Earn) Tax
+//taxable income less than 24000 is not taxed.
+//This is because of the standard personal relief of 2,400 which is deducted after PAYE tax is calculated
+//i.e when a taxabincome of 24,000 is taxed at 10% = 2,400 - tax relief giving 0 tax
+//PAYE is calculated in 3 different ranges
+// range1: up to 24,000 - 10%
+// range2: between 24,001 and 32,333 - 25%
+// range3: above 32,333 - 30%
+function monthlyPAYE(PAYEDeduction) {
+    const taxRelief = 2400
+    if (taxablePay() > 0 && taxablePay() <= 24000) {
+        return 0
+    } else if (taxablePay() >= 24001 && taxablePay() <= 32333) {
+        let tenPercentTax = 24000 * 0.1
+        let twentyFivePercentTax = (taxablePay() - 24000) * 0.25
+        //Math.round is used to round off to the nearest integer
+        return Math.round(tenPercentTax + twentyFivePercentTax) - taxRelief
+    } else {
+        let tenPercentTax = 24000 * 0.1
+        let twentyFivePercentTax = (32333 - 24000) * 0.25
+        let thirtyPercentTax = (taxablePay() - 32333) * 0.3
+        return Math.round(tenPercentTax + twentyFivePercentTax + thirtyPercentTax) - taxRelief
+    }
+}
+monthlyPAYE()
+
+//Function that calculates net salary by deducting PAYE, NHIF and NSSF from Gross Salary
+function netSalary(gross, nhif, nssf,taxablePaye, paye) {
+    const total = gross - paye - nhif - nssf
+    return `NHIF deductions = ${nhif}\nNSSF deduction = ${nssf}\nTaxable Pay = ${taxablePaye}\nPAYE tax = ${paye}\nNet Salary = ${total}`
+}
+console.log(netSalary(monthlyGrossPay, NHIFDeductions(), NSSFDeductions(), taxablePay(), monthlyPAYE()))
