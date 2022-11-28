@@ -1,6 +1,8 @@
+//sync const prompt, which is a prompt function for the user to input
 const prompt = require("prompt-sync")()
+//declaring the value being passed in the prompt method
 let grade = prompt("Please Enter your term marks; ")
-
+//Function declaration with parameter grade
 function studentGradeGenerator(grade){
     if(grade > 79 && grade <= 100){
         console.log()
@@ -19,3 +21,4 @@ function studentGradeGenerator(grade){
 }
 
 console.log(studentGradeGenerator(grade))
+//inputing arguments whenever prompted by the system.

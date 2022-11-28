@@ -37,6 +37,7 @@ run <code>npm initialise</code> and follow the prompts to initialise your packag
 optional: adding npm testing using npm start. 
 run <code>npm install</code>
 run <code>npm insall propmt-sync</code> in the terminal once you have finished writing the code.
+create your individual .js file for each Toy problem and write solutions in it.
 ***
 ## Author 
 The author of this project is; 
