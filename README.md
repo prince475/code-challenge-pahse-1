@@ -35,8 +35,12 @@ Clone repository to your local machine
 run <code>npm install</code>
 run <code>npm insall propmt-sync</code> in the terminal once you have finished writing the code.
 ***
-## Author and License
+## Author
+The author of this project is; 
 [Prince Daniel](https://github.com/prince475/code-challenge-pahse-1)
+***
+## License
+This project uses ISC license
 [License]("ISC")
 ***
 
