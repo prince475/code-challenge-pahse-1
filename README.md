@@ -4,10 +4,10 @@
 
 ## Table of Contents
 ***
-  1. [Description](#description)
-  2. [Imported Files](#imported-files)
-  3. [Installation](#installation)
-  4. [Author and License](#author-and-license)
+   1. [Description](#description)
+   2. [Imported Files](#imported-files)
+   3. [Installation](#installation)
+   4. [Author and License](#author-and-license)
   ***
 ## Description
 
@@ -40,7 +40,7 @@ The author of this project is;
 [Prince Daniel](https://github.com/prince475/code-challenge-pahse-1)
 ***
 ## License
-This project uses ISC license
+This project uses ISC
 [License]("ISC")
 ***
 
