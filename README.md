@@ -5,6 +5,9 @@
 ## Table of Contents
 ***
    1. [Description](#description)
+      - [Challenge-1:](Student grade generator)
+      - [challenge-2:](Speed Detector)
+      - [challenge-3:](Net Salary Calculator)
    2. [Imported Files](#imported-files)
    3. [Project Set Up](#project-set-up)
    4. [Author and License](#author-and-license)
@@ -12,9 +15,9 @@
 ## Description
 Week-1 code challenge.
 The challenge consisted of three Toy problems listed below;
- - Challenge 1: Student grade generator
- - challenge 2: Speed Detector
- - challenge 3: Net Salary Calculator
+  - Challenge 1: Student grade generator
+  - challenge 2: Speed Detector
+  - challenge 3: Net Salary Calculator
  ***
 
 ## Project set up
@@ -33,14 +36,27 @@ The code in this challenge prompts the user to input student marks. The input li
 
 A > 79, B - 60 to 79, C -  59 to 49, D - 40 to 49, E - less 40.
 
+### How to run
+- on the terminal, while in your project folder;
+- run <code>node studentGradeGenerator.js</code>
+The console will propmt you to Enter Marks, so that it can check and print out the correct grade for the value entered.
+
 ***
 ## Challenge 2: speedDetector
 This is a program that takes as input the speed of a car e.g 80 Km/hr. If the speed is less than 70, it prints “Ok”. Otherwise, for every 5 km/s above the speed limit (which is 70), it gives the driver one demerit point and prints the total number of demerit points.
+
+### How to run
+- on the terminal, while in your project folder;
+- run <code>node speedDetector.js</code>
+The console will propmt you to enter a value speed in Km/hr.It checks and prints out the response depending on the speed inputed.
 ***
 ## Challenge 3: netSalary calculator
 
 This a program whose major task is to calculate an individual’s Net Salary by getting the inputs of basic salary and benefits. Calculates the payee (i.e. Tax), NHIFDeductions, NSSFDeductions, gross salary, and net salary.
-
+### How to run
+- on the terminal, while in your project folder;
+- run <code>node netSalary.js</code>
+The console will propmt you to Enter your Net Salary.It takes the value entered, calculates the deductions and prints out the result, which is the value of Net Salary.
 
 ## Imported Files
 
